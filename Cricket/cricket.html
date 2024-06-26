@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket Game</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <style>
+      body {
+        text-align: center;
+      }
+      button {
+        padding: 10px;
+        font-size: 1em;
+        box-sizing: border-box;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Bat Ball Stump Game</h1>
+      <button
+        id="bat"
+        onclick="
+
+        // This will generate the random number btw 0 and 3
+        let randomNumber = Math.ceil(Math.random() * 3)
+
+        let computerChoice
+        if(randomNumber > 0 && randomNumber <= 1){
+             computerChoice = 'Bat';
+        }else if(randomNumber > 1 && randomNumber <= 2){
+             computerChoice = 'Ball';
+        }else{
+             computerChoice = 'Stump';
+        }
+
+        let resultMsg;
+        if(computerChoice === 'Ball'){
+            resultMsg = '🎊Congrats! you have won this Game🎉🥳'
+        }
+        else if(computerChoice === 'Stump'){
+            resultMsg = '🎊Computer won this Game🎉🥳'
+        }
+        else{
+            resultMsg = 'Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️'
+        }
+
+        alert(`You have choose Bat, Computer Choice is ${computerChoice} and ${resultMsg}`)
+        "
+      >
+        Bat
+      </button>
+      <button
+        id="ball"
+        onclick="
+        
+        // This will generate the random number btw 0 and 3
+        randomNumber = Math.ceil(Math.random() * 3)
+
+        if(randomNumber > 0 && randomNumber <= 1){
+             computerChoice = 'Bat';
+        }else if(randomNumber > 1 && randomNumber <= 2){
+             computerChoice = 'Ball';
+        }else{
+             computerChoice = 'Stump';
+        }
+
+
+        if(computerChoice === 'Stump'){
+            resultMsg = '🎊Congrats! you have won this Game🎉🥳'
+        }
+        else if(computerChoice === 'Bat'){
+            resultMsg = '🎊Computer won this Game🎉🥳'
+        }
+        else{
+            resultMsg = 'Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️'
+        }
+
+        alert(`You have choose Ball, Computer Choice is ${computerChoice} and ${resultMsg}`)
+        "
+      >
+        Ball
+      </button>
+      <button
+        onclick="
+        
+        // This will generate the random number btw 0 and 3
+        randomNumber = Math.ceil(Math.random() * 3)
+
+        if(randomNumber > 0 && randomNumber <= 1){
+             computerChoice = 'Bat';
+        }else if(randomNumber > 1 && randomNumber <= 2){
+             computerChoice = 'Ball';
+        }else{
+             computerChoice = 'Stump';
+        }
+
+
+        if(computerChoice === 'Bat'){
+            resultMsg = '🎊Congrats! you have won this Game🎉🥳'
+        }
+        else if(computerChoice === 'Ball'){
+            resultMsg = '🎊Computer won this Game🎉🥳'
+        }
+        else{
+            resultMsg = 'Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️'
+        }
+
+        alert(`You have choose Stump, Computer Choice is ${computerChoice} and ${resultMsg}`)
+        "
+      >
+        Stump
+      </button>
+      <h1 id="winner"></h1>
+    </main>
+
+    <script></script>
+  </body>
+</html>
