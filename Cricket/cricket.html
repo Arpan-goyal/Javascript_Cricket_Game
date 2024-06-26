@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cricket Game</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <style>
+    <!-- <style>
       body {
         text-align: center;
       }
@@ -16,7 +16,7 @@
         font-weight: bold;
         cursor: pointer;
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <main>
@@ -25,30 +25,9 @@
         id="bat"
         onclick="
 
-        // This will generate the random number btw 0 and 3
-        let randomNumber = Math.ceil(Math.random() * 3)
-
-        let computerChoice
-        if(randomNumber == 1){
-             computerChoice = 'Bat';
-        }else if(randomNumber == 2){
-             computerChoice = 'Ball';
-        }else{
-             computerChoice = 'Stump';
-        }
-
-        let resultMsg;
-        if(computerChoice === 'Ball'){
-            resultMsg = '🎊Congrats! you have won this Game🎉🥳'
-        }
-        else if(computerChoice === 'Stump'){
-            resultMsg = '🎊Computer won this Game🎉🥳'
-        }
-        else{
-            resultMsg = 'Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️'
-        }
-
-        alert(`You have choose Bat, Computer Choice is ${computerChoice} and ${resultMsg}`)
+        let computerChoice = getComputerChoice();
+        let resultMsg = getResult('Bat', computerChoice);
+        showResult('Bat', computerChoice, resultMsg);
         "
       >
         Bat
@@ -57,29 +36,9 @@
         id="ball"
         onclick="
         
-        // This will generate the random number btw 0 and 3
-        randomNumber = Math.ceil(Math.random() * 3)
-
-        if(randomNumber == 1){
-             computerChoice = 'Bat';
-        }else if(randomNumber == 2){
-             computerChoice = 'Ball';
-        }else{
-             computerChoice = 'Stump';
-        }
-
-
-        if(computerChoice === 'Stump'){
-            resultMsg = '🎊Congrats! you have won this Game🎉🥳'
-        }
-        else if(computerChoice === 'Bat'){
-            resultMsg = '🎊Computer won this Game🎉🥳'
-        }
-        else{
-            resultMsg = 'Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️'
-        }
-
-        alert(`You have choose Ball, Computer Choice is ${computerChoice} and ${resultMsg}`)
+        computerChoice = getComputerChoice();
+        resultMsg = getResult('Ball', computerChoice);
+        showResult('Ball', computerChoice, resultMsg);
         "
       >
         Ball
@@ -87,29 +46,9 @@
       <button
         onclick="
         
-        // This will generate the random number btw 0 and 3
-        randomNumber = Math.ceil(Math.random() * 3)
-
-        if(randomNumber == 1){
-             computerChoice = 'Bat';
-        }else if(randomNumber == 2){
-             computerChoice = 'Ball';
-        }else{
-             computerChoice = 'Stump';
-        }
-
-
-        if(computerChoice === 'Bat'){
-            resultMsg = '🎊Congrats! you have won this Game🎉🥳'
-        }
-        else if(computerChoice === 'Ball'){
-            resultMsg = '🎊Computer won this Game🎉🥳'
-        }
-        else{
-            resultMsg = 'Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️'
-        }
-
-        alert(`You have choose Stump, Computer Choice is ${computerChoice} and ${resultMsg}`)
+        computerChoice = getComputerChoice();
+        resultMsg = getResult('Stump', computerChoice);
+        showResult('Stump', computerChoice, resultMsg);
         "
       >
         Stump
@@ -117,6 +56,43 @@
       <h1 id="winner"></h1>
     </main>
 
-    <script></script>
+    <script>
+      // This function is giving Random Number btw 0 and 3
+      function getComputerChoice() {
+        let randomNumber = Math.ceil(Math.random() * 3);
+
+        if (randomNumber == 1) return "Bat";
+        else if (randomNumber == 2) return "Ball";
+        else return "Stump";
+      }
+
+      function getResult(userMove, computerMove) {
+        if (userMove === "Bat") {
+          if (computerMove === "Ball")
+            return "🎊Congrats! you have won this Game🎉🥳";
+          else if (computerMove === "Stump")
+            return "🎊Computer won this Game🎉🥳";
+          else return "Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️";
+        } 
+        else if (userMove === "Ball") {
+          if (computerMove === "Stump")
+            return "🎊Congrats! you have won this Game🎉🥳";
+          else if (computerChoice === "Bat")
+            return "🎊Computer won this Game🎉🥳";
+          else return "Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️";
+        } 
+        else {
+          if (computerChoice === "Bat")
+            return"🎊Congrats! you have won this Game🎉🥳";
+          else if (computerChoice === "Ball")
+            return"🎊Computer won this Game🎉🥳";
+          else return "Oops! This match is Tie 🫂🫱🏼‍🫲🏻🙆‍♂️";
+        }
+      }
+
+      function showResult(userMove, computerChoice, resultMsg){
+        alert(`You have choose ${userMove}, Computer Choice is ${computerChoice} and ${resultMsg}`)
+      }
+    </script>
   </body>
 </html>
