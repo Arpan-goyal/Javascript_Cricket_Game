@@ -57,6 +57,16 @@
     </main>
 
     <script>
+      // This will Display the score
+      // Score Object
+      let score = {
+        win: 0,
+        lose: 0,
+        tie: 0,
+        displayScore : function(){
+          return `Win: ${score.win}  Lose: ${score.lose} Tie: ${score.tie}`;
+        }
+      };
       // This function is giving Random Number btw 0 and 3
       function getComputerChoice() {
         let randomNumber = Math.ceil(Math.random() * 3);
@@ -91,7 +101,12 @@
       }
 
       function showResult(userMove, computerChoice, resultMsg){
-        alert(`You have choose ${userMove}, Computer Choice is ${computerChoice} and ${resultMsg}`)
+        alert(
+          `You have choose ${userMove}, Computer Choice is ${computerChoice} 
+          ${resultMsg}
+          ${score.displayScore()}
+          `
+        );
       }
     </script>
   </body>
